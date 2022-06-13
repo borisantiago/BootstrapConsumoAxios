@@ -1,0 +1,13 @@
+body{
+    margin: 0px;
+    background-color:aliceblue;
+}
+
+
+.column-1{
+    background-color: cadetblue;
+}
+
+.column-2{
+    background-color: yellow;
+}
