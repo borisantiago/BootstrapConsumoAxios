@@ -10,15 +10,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-        <!-- ICONOS-->
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">    
-
     <link rel="stylesheet" href="./style.css">
 
     <title>Document</title>
 </head>
 <body>
+
+
+    
 
     <div class="row m-2 mt-5">
         <div class="col-md-8" style="margin: auto;">
@@ -33,28 +32,52 @@
                     <input type="text" id="inputPassword6" class="form-control" placeholder="Buscar">
                 </div>
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" data-toggle="modal" data-target="#ventanaModal" class="btn btn-primary">Agregar</button>
+                </div>
+
+                <div class="contaniner">
+                    <div class="modal" id="ventanaModal" tabindex="-1" role="dialog" aria-label="tituloVentana" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 id="tituloVentana">Titulo</h5>
+                                    <button class="close" data-dismiss="modal" arial-label="Cerrar">
+                                        <span aria-hidden="true"> &times; </span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="alert alert-success">
+                                        <h6><strong>Tus datos se guardaron correctamente</strong></h6>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-warning" type="button" data-dismiss="modal">Cerrar</button>
+                                    <button class="btn btn-success">Aceptar</button>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                
+
                 </div>
             </div> 
         
                 <div class="col-md-12 " style="margin: auto;">
                     <div id="contenedor">
-                        
-
-                       
-                    </div>
-
-                    
-                    
-                    
+                   
+                    </div>  
                 </div>
+
+                
+                
         </div>
+
+        
         
     </div>
 
     
-
-             
+    
     
     
 

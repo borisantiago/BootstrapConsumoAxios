@@ -1,12 +1,14 @@
 
-var data_get ='';
-
 let peliculas='';
+
+var data_get ='';
+var data_delete= '';
 
 const apiURL = "https://bp-marvel-api.herokuapp.com/"
 
 
-data_get = apiURL + "marvel-characters?idAuthor=1"
+data_get = apiURL + "marvel-characters?idAuthor=1";
+data_delete = apiURL + ":id?idAuthor=2";
 
 console.log(data_get);
 
@@ -29,7 +31,7 @@ axios.get(data_get)
                             <label for=""> <span style="color: rgb(213, 204, 204)">${element.body}</span> </label>
                     </div> 
                     <div class="col-md-2 col-sm-2">
-                        <button type="button" class="btn btn-outline-danger">delete</button>
+                        <button type="button" @click="delete()" class="btn btn-outline-danger">delete</button>
                     </div>           
                 </div>    
             </div>
@@ -43,6 +45,21 @@ axios.get(data_get)
     .catch((error)=>{
         console.log("Mal conectado el api"+error);
     })
+
+
+    
+       
+axios.delete(data_delete)
+    .then((response)=>{
+        console.log(response);
+    })
+    .catch((e)=>
+        e
+    )
+      
+    
+
+
 
     
 
