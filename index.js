@@ -7,6 +7,11 @@ var data_delete= '';
 
 const apiURL = "https://bp-marvel-api.herokuapp.com/"
 
+const apiPost = "https://bp-marvel-api.herokuapp.com/marvel-characters?idAuthor=1"
+
+const paramsRequest = {
+    idAuthor: 1
+}
 
 data_get = apiURL + "marvel-characters?idAuthor=1";
 data_delete = apiURL + ":id?idAuthor=2";
@@ -28,7 +33,7 @@ axios.get(data_get)
             <div class="card-body">   
                 <div class="row"> 
                     <div class="col-md-3 col-sm-2">
-                         <img src="${element.image}" width="100%" alt="">
+                         <img src="${element.image}" width="100%" alt="" >
                     </div>
                     <div class="col-md-7 col-sm-7">
                         <label for=""><span style="color: white"><b>${element.title}</b> </span> </label>
@@ -52,33 +57,33 @@ axios.get(data_get)
     })
 
     //post
-    async function enviar(){
-        var nombre = document.getElementById('nombre').value;
-        var descripcion = document.getElementById('descripcion').value;
-        var imagen = document.getElementById('imagen').value;
-        //var ur = data_get;
-        //var long = ur.data.length +1;
-        const nuevoRegi = {
-            title : nombre,
-            body: descripcion,
-            imagen: imagen,
-            category: "main",
-            idAuthor: 5,
-            createdAt: new Date()
-        };
-        console.log(nuevoRegi);
-        
-        try{
-            const response = await axios.post(data_get, nuevoRegi);
+        async function enviar(){
+            var nombre = document.getElementById("nombre").value;
+            var descripcion = document.getElementById("descripcion").value;
+            var imagen = document.getElementById("imagen").value;
+            var long = data_get.length + 1;
+            console.log(long);
+            const newData = {
+                title: nombre,
+                body: descripcion,
+                image: imagen,
+                category: "main",
+                idAuthor: long,
+                createdAt:new Date(),
+            };
+            try {
+            const response = await axios.post(apiPost, newData);
             const newTodoItem = response.data;
-  
-            console.log(`Added a new Todo!`, newTodoItem);
-  
+        
+            console.log(`se añadio: `, newTodoItem);
+            location.reload();
+        
             return newTodoItem;
-        }catch(error){
-            console.log(error);
+            } catch (errors) {
+            console.error(errors);
+            }
         }
-    }
+
 
 
     //delete
@@ -86,21 +91,23 @@ axios.get(data_get)
         console.log(idSelect);
         try {
           const response = await axios.delete(`${apiURL}marvel-characters/${idSelect}?idAuthor=1`);
-          console.log(`Deleted Todo ID: `, idSelect);
-      
+          console.log(`Eliminado el id: `, idSelect);
+          location.reload();
           return response.data;
+          
         } catch (errors) {
           console.error(errors);
         }
-        refresh();
+        
+        //refresh();
     }
 
+    
     window.addEventListener('submit',async event => {
         event.preventDefault();
-        makePost();
+        //enviar();
         
     })
-       
     
       
 
@@ -114,9 +121,6 @@ function regresar(){
     document.getElementById('dataE').style.display = 'none';
     document.getElementById('btnNuevo').style.display = 'block';
     document.getElementById('btnRegresar').style.display = 'none';
-    
-
-
 }
 
 
