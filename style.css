@@ -3,6 +3,10 @@ body{
     background-color:aliceblue;
 }
 
+.dataE{
+    display: none;
+}
+
 
 .column-1{
     background-color: cadetblue;
